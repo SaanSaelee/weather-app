@@ -11,12 +11,14 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {
   const query = req.body.cityName;
-  const apiKey = "1da50dfd77400f50c1f3c5bdfb692832";
-  const unit = "imperial";
+  // Don't forget to add your API Key
+  const apiKey = "&appid=";
+  const unit = "&units=imperial";
   const url =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     query +
-    "&units=imperial&appid=1da50dfd77400f50c1f3c5bdfb692832";
+    unit +
+    apiKey;
 
   https.get(url, function (response) {
     console.log(response.statusCode);
